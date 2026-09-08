@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "E1 Java: compilar",
+      "type": "process",
+      "command": "javac",
+      "args": ["--release", "26", "-encoding", "UTF-8", "-d", "salida-java", "src/main/java/aula/e1/Main.java"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "E1 Java: empaquetar",
+      "type": "process",
+      "command": "jar",
+      "args": ["--create", "--file", "salida-java/e1-comparacion.jar", "--main-class", "aula.e1.Main", "-C", "salida-java", "aula"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "dependsOn": "E1 Java: compilar",
+      "problemMatcher": []
+    },
+    {
+      "label": "E1 Java: ejecutar",
+      "type": "process",
+      "command": "java",
+      "args": ["-jar", "salida-java/e1-comparacion.jar"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "dependsOn": "E1 Java: empaquetar",
+      "problemMatcher": []
+    },
+    {
+      "label": "E1 C: objeto",
+      "type": "process",
+      "command": "gcc",
+      "osx": {"command": "clang"},
+      "args": ["-std=c17", "-Wall", "-Wextra", "-c", "comparacion/saludo.c", "-o", "saludo.o"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "E1 C: compilar",
+      "type": "process",
+      "command": "gcc",
+      "osx": {"command": "clang"},
+      "args": ["-std=c17", "-Wall", "-Wextra", "comparacion/saludo.c", "-o", "salida-c"],
+      "windows": {"args": ["-std=c17", "-Wall", "-Wextra", "comparacion/saludo.c", "-o", "salida-c.exe"]},
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "E1 C: ejecutar",
+      "type": "process",
+      "command": "${workspaceFolder}/salida-c",
+      "windows": {"command": "${workspaceFolder}\\salida-c.exe"},
+      "options": {"cwd": "${workspaceFolder}"},
+      "dependsOn": "E1 C: compilar",
+      "problemMatcher": []
+    }
+  ]
+}
