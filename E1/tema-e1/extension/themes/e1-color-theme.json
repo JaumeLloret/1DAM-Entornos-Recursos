@@ -1,0 +1,30 @@
+{
+  "name": "E1 Contraste",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#13222B",
+    "editor.foreground": "#F2F5F7",
+    "activityBar.background": "#173544",
+    "statusBar.background": "#15566B",
+    "statusBar.foreground": "#FFFFFF",
+    "sideBar.background": "#182B35"
+  },
+  "tokenColors": [
+    {
+      "scope": [
+        "comment"
+      ],
+      "settings": {
+        "foreground": "#A7BDC8"
+      }
+    },
+    {
+      "scope": [
+        "string"
+      ],
+      "settings": {
+        "foreground": "#F0D780"
+      }
+    }
+  ]
+}

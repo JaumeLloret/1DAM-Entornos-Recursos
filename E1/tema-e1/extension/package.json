@@ -1,0 +1,23 @@
+{
+  "name": "tema-e1",
+  "displayName": "E1 Contraste",
+  "description": "Tema local de práctica para instalar y retirar una extensión en E1. Sin código ejecutable.",
+  "version": "1.0.0",
+  "publisher": "e1-docencia",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "license": "MIT",
+  "contributes": {
+    "themes": [
+      {
+        "label": "E1 Contraste",
+        "uiTheme": "vs-dark",
+        "path": "./themes/e1-color-theme.json"
+      }
+    ]
+  }
+}
